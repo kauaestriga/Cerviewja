@@ -17,7 +17,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:spanCount="2"
-        tools:listitem="@layout/adapter_beers_list" />
+        tools:listitem="@layout/adapter_beers_list"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/btn_add_beer"
@@ -27,5 +28,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_empty_list"
+        style="@style/text"
+        android:text="@string/empty_list"
+        app:layout_constraintBottom_toTopOf="@+id/btn_add_beer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

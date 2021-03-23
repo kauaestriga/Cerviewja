@@ -26,6 +26,7 @@
         <item name="android:drawablePadding">@dimen/padding_drawable_edittext</item>
         <item name="android:fontFamily">@font/archivo_narrow</item>
         <item name="android:textSize">@dimen/edittext_text_size</item>
+        <item name="android:lines">1</item>
     </style>
 
     <style name="button_primary">

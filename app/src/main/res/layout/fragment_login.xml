@@ -19,7 +19,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:text="teste@teste.com"
         android:id="@+id/edt_email_login"
         style="@style/edittext_white"
         android:layout_marginStart="@dimen/margin_sides_default"
@@ -33,7 +32,6 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:text="123456"
         android:id="@+id/edt_password_login"
         style="@style/edittext_white"
         android:hint="@string/password"

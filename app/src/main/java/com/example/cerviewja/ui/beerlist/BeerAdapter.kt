@@ -28,8 +28,8 @@ class BeerAdapter(
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(beerItem: Description) {
-            val title =itemView.findViewById<TextView>(R.id.adp_title_beer)
-            val price =itemView.findViewById<TextView>(R.id.adp_price)
+            val title = itemView.findViewById<TextView>(R.id.adp_title_beer)
+            val price = itemView.findViewById<TextView>(R.id.adp_price)
             val alcoholContent =itemView.findViewById<TextView>(R.id.adp_alcohol_content)
 
             title.text = beerItem.nome

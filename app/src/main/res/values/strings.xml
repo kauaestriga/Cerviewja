@@ -38,6 +38,7 @@
     <!--Cervejas-->
     <string name="beers">Cervejas</string>
     <string name="new_beer">Nova cerveja</string>
+    <string name="empty_list">Sem itens para exibir no momento</string>
 
     <!--Adicionar cerveja-->
     <string name="the_beer">A Cerveja</string>
@@ -51,6 +52,7 @@
     <string name="edit">Editar</string>
     <string name="empty_error">Insira um valor</string>
     <string name="save_success">Salvo com sucesso</string>
+    <string name="current_currency">R$ %1$s</string>
 
     <!--Sobre-->
     <string name="about">Sobre</string>
@@ -69,6 +71,7 @@
        Atualize para continuar avaliando suas cervejas favoritas!</string>
     <string name="update_now">Atualizar aplicativo</string>
     <string name="update_later">Atualizar depois</string>
+    <string name="version">Versão %1$s</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

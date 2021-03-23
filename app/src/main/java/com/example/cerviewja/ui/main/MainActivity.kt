@@ -1,22 +1,49 @@
 package com.example.cerviewja.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.cerviewja.R
+import com.example.cerviewja.ui.about.AboutFragment
 import com.example.cerviewja.ui.base.BaseFragment
+import com.example.cerviewja.ui.beerlist.BeerListFragment
 import com.example.cerviewja.ui.login.LoginFragment
-import com.example.cerviewja.utils.FragmentFlow
+import com.example.cerviewja.ui.profile.ProfileFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        FragmentFlow(supportFragmentManager).replaceFragment(LoginFragment())
         BaseFragment.addFragment(supportFragmentManager, LoginFragment())
+        setListeners()
+    }
+
+    private fun setListeners() {
+        bottomNavigationView.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.menu_beers-> {
+                    replaceFragment(BeerListFragment(), getString(R.string.beers))
+                    return@setOnNavigationItemSelectedListener true
+                }
+
+                R.id.menu_profile-> {
+                    replaceFragment(ProfileFragment(), getString(R.string.profile))
+                    return@setOnNavigationItemSelectedListener true
+                }
+
+                R.id.menu_about-> {
+                    replaceFragment(AboutFragment(), getString(R.string.about))
+                    return@setOnNavigationItemSelectedListener true
+                }
+            }
+            false
+
+        }
     }
 
     fun replaceFragment(fragment: Fragment, title: String) {
@@ -37,5 +64,13 @@ class MainActivity : AppCompatActivity() {
     fun hideToolbarNavigationBar() {
         bottomNavigationView.visibility = View.GONE
         toolbar.visibility = View.GONE
+    }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStack()
+        } else {
+            super.onBackPressed()
+        }
     }
 }

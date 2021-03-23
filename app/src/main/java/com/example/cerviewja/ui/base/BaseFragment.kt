@@ -53,10 +53,6 @@ abstract class BaseFragment : Fragment() {
         return screenRootView
     }
 
-    private fun configureEnvironment(container: View, tvEnvironment: TextView) {
-
-    }
-
     fun showLoading() {
         loadingView.visibility = View.VISIBLE
     }

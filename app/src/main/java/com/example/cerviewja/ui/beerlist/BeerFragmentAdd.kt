@@ -133,7 +133,7 @@ class BeerFragmentAdd(
             .update(Constants.COLLECTION, FieldValue.arrayUnion(description.nome))
             .addOnCompleteListener { task ->
                 if (task.isSuccessful)
-                    backPressed()
+                    replaceFragment(BeerListFragment(), getString(R.string.beers))
             }
 
         hideLoading()

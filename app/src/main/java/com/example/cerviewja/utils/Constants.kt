@@ -5,6 +5,7 @@ class Constants {
     companion object {
         const val UID = "uid"
         const val USERS = "users"
+        const val DEVELOPERS = "developers"
         const val BEERS_USERS = "beers_users"
         const val COLLECTION = "colecao"
         const val DESCRIPTION = "descricao"
