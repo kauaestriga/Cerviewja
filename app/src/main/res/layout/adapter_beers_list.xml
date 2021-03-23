@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/background_cardview">
+
+    <TextView
+        android:id="@+id/adp_title_beer"
+        style="@style/text"
+        android:layout_width="0dp"
+        android:text="Beer name"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/adp_price"
+        style="@style/simple_text"
+        android:layout_width="0dp"
+        android:layout_marginTop="4dp"
+        android:text="Price beer"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/adp_title_beer"
+        app:layout_constraintTop_toBottomOf="@+id/adp_title_beer" />
+
+    <TextView
+        android:id="@+id/adp_alcohol_content"
+        style="@style/simple_text"
+        android:layout_width="0dp"
+        android:layout_marginTop="4dp"
+        android:text="Alcohol content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/adp_price"
+        app:layout_constraintTop_toBottomOf="@+id/adp_price" />
+
+    <ImageView
+        android:id="@+id/tv_beer_photo"
+        android:layout_width="48dp"
+        android:layout_height="0dp"
+        android:src="@drawable/adp_iv_beer"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/adp_alcohol_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/adp_price"
+        app:layout_constraintTop_toTopOf="@+id/adp_title_beer" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
+</androidx.constraintlayout.widget.ConstraintLayout>

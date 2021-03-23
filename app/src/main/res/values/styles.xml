@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="FullScreen" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
+
+    <style name="edittext_white">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">@dimen/padding_drawable_edittext</item>
+        <item name="android:textColorHint">@color/background</item>
+        <item name="android:backgroundTint">@color/background</item>
+        <item name="android:textColor">@color/background</item>
+        <item name="android:fontFamily">@font/archivo_narrow</item>
+        <item name="android:textSize">@dimen/edittext_text_size</item>
+    </style>
+
+    <style name="edittext">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">@dimen/padding_drawable_edittext</item>
+        <item name="android:fontFamily">@font/archivo_narrow</item>
+        <item name="android:textSize">@dimen/edittext_text_size</item>
+    </style>
+
+    <style name="button_primary">
+        <item name="android:layout_width">@dimen/button_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/margin_sides_default</item>
+        <item name="android:layout_marginEnd">@dimen/margin_sides_default</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/background</item>
+        <item name="android:fontFamily">@font/archivo_narrow_bold</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:background">@drawable/button_background</item>
+    </style>
+
+    <style name="link">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/app_name</item>
+        <item name="android:textColor">@drawable/link_selector</item>
+        <item name="android:textSize">@dimen/link_font_size</item>
+        <item name="android:fontFamily">@font/archivo_narrow</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="big_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/app_name</item>
+        <item name="android:textColor">@color/colorPrimaryLight</item>
+        <item name="android:textSize">@dimen/big_title_size</item>
+        <item name="android:fontFamily">@font/archivo_black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="big_subtitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/app_name</item>
+        <item name="android:textColor">@color/colorPrimaryLight</item>
+        <item name="android:textSize">@dimen/subtitle_size</item>
+        <item name="android:fontFamily">@font/archivo_narrow_bold</item>
+    </style>
+
+    <style name="cardview_text_item">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorPrimaryLight</item>
+        <item name="android:textSize">@dimen/item_text_size</item>
+        <item name="android:fontFamily">@font/archivo_narrow_bold</item>
+    </style>
+
+    <style name="title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/edittext_text_size</item>
+        <item name="android:fontFamily">@font/archivo_narrow_bold</item>
+    </style>
+
+    <style name="text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/item_text_size</item>
+        <item name="android:fontFamily">@font/archivo_narrow_bold</item>
+    </style>
+
+    <style name="simple_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/simple_text_size</item>
+        <item name="android:fontFamily">@font/archivo_narrow</item>
+    </style>
+</resources>

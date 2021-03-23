@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_sides_default">16dp</dimen>
+    <dimen name="margin_top_default">8dp</dimen>
+    <dimen name="padding_drawable_edittext">8dp</dimen>
+    <dimen name="margin_top_button">64dp</dimen>
+    <dimen name="edittext_text_size">20sp</dimen>
+    <dimen name="link_font_size">16sp</dimen>
+    <dimen name="big_title_size">56sp</dimen>
+    <dimen name="subtitle_size">26sp</dimen>
+    <dimen name="button_width">275dp</dimen>
+    <dimen name="button_text_size">16sp</dimen>
+    <dimen name="item_text_size">16sp</dimen>
+    <dimen name="simple_text_size">13sp</dimen>
+</resources>

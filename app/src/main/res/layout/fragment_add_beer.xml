@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <EditText
+        android:id="@+id/edt_name_beerfrag"
+        style="@style/edittext"
+        android:layout_marginTop="16dp"
+        android:drawableStart="@drawable/ic_bottle"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:hint="@string/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edt_brewery_beerfrag"
+        style="@style/edittext"
+        android:layout_marginTop="@dimen/margin_top_default"
+        android:drawableStart="@drawable/ic_factory"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:hint="@string/brewery"
+        app:layout_constraintEnd_toEndOf="@+id/edt_name_beerfrag"
+        app:layout_constraintStart_toStartOf="@+id/edt_name_beerfrag"
+        app:layout_constraintTop_toBottomOf="@+id/edt_name_beerfrag" />
+
+    <EditText
+        android:id="@+id/edt_style_beerfrag"
+        style="@style/edittext"
+        android:layout_marginTop="@dimen/margin_top_default"
+        android:drawableStart="@drawable/ic_sprout"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:hint="@string/style"
+        app:layout_constraintEnd_toEndOf="@+id/edt_brewery_beerfrag"
+        app:layout_constraintStart_toStartOf="@+id/edt_brewery_beerfrag"
+        app:layout_constraintTop_toBottomOf="@+id/edt_brewery_beerfrag" />
+
+    <EditText
+        android:id="@+id/edt_source_beerfrag"
+        style="@style/edittext"
+        android:layout_marginTop="@dimen/margin_top_default"
+        android:drawableStart="@drawable/ic_earth"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:hint="@string/source"
+        app:layout_constraintEnd_toEndOf="@+id/edt_style_beerfrag"
+        app:layout_constraintStart_toStartOf="@+id/edt_style_beerfrag"
+        app:layout_constraintTop_toBottomOf="@+id/edt_style_beerfrag" />
+
+    <EditText
+        android:id="@+id/edt_price_beerfrag"
+        style="@style/edittext"
+        android:layout_marginTop="@dimen/margin_top_default"
+        android:drawableStart="@drawable/ic_currency"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:hint="@string/price"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/edt_source_beerfrag"
+        app:layout_constraintStart_toStartOf="@+id/edt_source_beerfrag"
+        app:layout_constraintTop_toBottomOf="@+id/edt_source_beerfrag" />
+
+    <EditText
+        android:id="@+id/edt_alcohol_content_beerfrag"
+        style="@style/edittext"
+        android:layout_marginTop="@dimen/margin_top_default"
+        android:drawableStart="@drawable/ic_percent"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:hint="@string/alcohol_content"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/edt_price_beerfrag"
+        app:layout_constraintStart_toStartOf="@+id/edt_price_beerfrag"
+        app:layout_constraintTop_toBottomOf="@+id/edt_price_beerfrag" />
+
+    <Button
+        android:id="@+id/btn_save_edit_beerfrag"
+        style="@style/button_primary"
+        android:text="@string/save"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/edt_alcohol_content_beerfrag"
+        app:layout_constraintStart_toStartOf="@+id/edt_alcohol_content_beerfrag"
+        app:layout_constraintTop_toBottomOf="@+id/edt_alcohol_content_beerfrag"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

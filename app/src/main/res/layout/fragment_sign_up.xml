@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.signup.SignUpFragment"
+    android:background="@drawable/background_beer">
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/big_title"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/archivo_narrow"
+        android:text="@string/hello"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/big_subtitle"
+        android:text="@string/about_you"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/edt_name_signup"
+        style="@style/edittext_white"
+        android:layout_marginStart="@dimen/margin_sides_default"
+        android:layout_marginEnd="@dimen/margin_sides_default"
+        android:layout_marginTop="32dp"
+        android:hint="@string/full_name"
+        android:inputType="textPersonName"
+        android:drawableStart="@drawable/ic_person_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"/>
+
+    <EditText
+        android:id="@+id/edt_email_signup"
+        style="@style/edittext_white"
+        android:hint="@string/email"
+        android:layout_marginTop="@dimen/margin_top_default"
+        android:inputType="textEmailAddress"
+        android:drawableStart="@drawable/ic_alternate_email_white"
+        app:layout_constraintEnd_toEndOf="@+id/edt_name_signup"
+        app:layout_constraintStart_toStartOf="@+id/edt_name_signup"
+        app:layout_constraintTop_toBottomOf="@+id/edt_name_signup"/>
+
+    <EditText
+        android:id="@+id/edt_password_signup"
+        style="@style/edittext_white"
+        android:hint="@string/password"
+        android:layout_marginTop="@dimen/margin_top_default"
+        android:inputType="textPassword"
+        android:drawableStart="@drawable/ic_lock_white"
+        app:layout_constraintEnd_toEndOf="@+id/edt_email_signup"
+        app:layout_constraintStart_toStartOf="@+id/edt_email_signup"
+        app:layout_constraintTop_toBottomOf="@+id/edt_email_signup"/>
+
+    <EditText
+        android:id="@+id/edt_confirm_password_signup"
+        style="@style/edittext_white"
+        android:hint="@string/confirm_password"
+        android:layout_marginTop="@dimen/margin_top_default"
+        android:inputType="textPassword"
+        android:drawableStart="@drawable/ic_lock_white"
+        app:layout_constraintEnd_toEndOf="@+id/edt_password_signup"
+        app:layout_constraintStart_toStartOf="@+id/edt_password_signup"
+        app:layout_constraintTop_toBottomOf="@+id/edt_password_signup"/>
+
+    <Button
+        android:id="@+id/btn_signup_signup"
+        style="@style/button_primary"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/sign_up"
+        app:layout_constraintEnd_toEndOf="@+id/edt_confirm_password_signup"
+        app:layout_constraintStart_toStartOf="@+id/edt_confirm_password_signup"
+        app:layout_constraintTop_toBottomOf="@+id/edt_confirm_password_signup" />
+</androidx.constraintlayout.widget.ConstraintLayout>

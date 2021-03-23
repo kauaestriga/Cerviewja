@@ -1,0 +1,75 @@
+<resources>
+    <!--Tela de Login-->
+    <string name="app_name">Cerviewja</string>
+    <string name="email">Endereço de e-mail</string>
+    <string name="password">Senha</string>
+    <string name="enter">Entrar</string>
+    <string name="label_create_account">Novo por aqui? Cadastre-se</string>
+    <string name="label_reset_password">Esqueceu a senha?</string>
+    <string name="insert_email">Insira um email válido</string>
+    <string name="insert_pass">Insira sua senha</string>
+    <string name="stay_connect">Manter conectado</string>
+
+    <!--Tela de cadastro-->
+    <string name="hello">Olá!</string>
+    <string name="about_you">Conte-nos um pouco sobre você.</string>
+    <string name="full_name">Nome completo</string>
+    <string name="confirm_password">Confirmar senha</string>
+    <string name="sign_up">Cadastrar</string>
+    <string name="name_error">Insira um nome</string>
+    <string name="email_error">Insira um email válido</string>
+    <string name="password_error">Insira uma senha</string>
+    <string name="confirm_password_error">Suas senhas devem ser iguais</string>
+
+    <!--Dialog-->
+    <string name="ops">Ops…</string>
+    <string name="iupi">Oba!!</string>
+    <string name="recovery_email_text">Verifique seu email. Foi enviado o procedimento para
+        efetuar a redefinição da sua senha</string>
+    <string name="recovery_email_text_error">Erro ao enviar o email de recuperação, tente novamente
+    mais tarde</string>
+    <string name="loading_text">Carregando, aguarde…</string>
+    <string name="got_it_error">Entendi</string>
+    <string name="got_it_happy">Tá bom!</string>
+
+    <!--Perfil-->
+    <string name="profile">Perfil</string>
+
+    <!--Cervejas-->
+    <string name="beers">Cervejas</string>
+    <string name="new_beer">Nova cerveja</string>
+
+    <!--Adicionar cerveja-->
+    <string name="the_beer">A Cerveja</string>
+    <string name="name">Nome</string>
+    <string name="brewery">Cervejaria</string>
+    <string name="style">Estilo</string>
+    <string name="source">Origem</string>
+    <string name="price">Preço</string>
+    <string name="alcohol_content">Teor alcoólico</string>
+    <string name="save">Salvar</string>
+    <string name="edit">Editar</string>
+    <string name="empty_error">Insira um valor</string>
+    <string name="save_success">Salvo com sucesso</string>
+
+    <!--Sobre-->
+    <string name="about">Sobre</string>
+    <string name="developers">Desenvolvedores</string>
+
+    <string name="process_request">Processando a requisição</string>
+
+    <!--Erros requisição-->
+    <string name="user_login_error">Usuário não logado</string>
+    <string name="user_not_found">Usuário não encontrado</string>
+    <string name="user_email_invalid">Usuário ou senha inválido</string>
+    <string name="impossible_account_create">Não foi possível criar a conta</string>
+
+    <!--Atualizaçao App-->
+    <string name="update_app_text">Você está utilizando uma versão antiga do nosso aplicativo.
+       Atualize para continuar avaliando suas cervejas favoritas!</string>
+    <string name="update_now">Atualizar aplicativo</string>
+    <string name="update_later">Atualizar depois</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
