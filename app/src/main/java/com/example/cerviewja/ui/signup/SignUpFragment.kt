@@ -102,7 +102,7 @@ class SignUpFragment : BaseFragment() {
                 .set(user)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        replaceFragment(BeerListFragment(), getString(R.string.beers))
+                        replaceFragment(BeerListFragment())
                     } else {
                         deleteUserAuth()
                         showErrorMessage(R.string.impossible_account_create)

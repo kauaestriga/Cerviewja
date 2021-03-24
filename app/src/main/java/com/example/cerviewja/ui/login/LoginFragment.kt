@@ -32,7 +32,7 @@ class LoginFragment : BaseFragment() {
 
         userSharedPreferences = UserSharedPreferences(requireContext())
         if (isLogged()) {
-            replaceFragment(BeerListFragment(), R.string.beers)
+            replaceFragment(BeerListFragment())
         }
 
         setUpView(view)
@@ -96,7 +96,7 @@ class LoginFragment : BaseFragment() {
                 if (task.isSuccessful) {
                     if (cbStayConnect.isChecked)
                         userSharedPreferences.saveValue(Constants.UID, mAuth.currentUser?.uid)
-                    replaceFragment(BeerListFragment(), R.string.beers)
+                    replaceFragment(BeerListFragment())
                 } else {
                     showErrorMessage(task.exception?.message.toString())
                 }
@@ -111,6 +111,8 @@ class LoginFragment : BaseFragment() {
             return
         }
 
+        showLoading()
+
         mAuth.sendPasswordResetEmail(edtEmail.getString())
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -118,10 +120,11 @@ class LoginFragment : BaseFragment() {
                 } else {
                     showErrorMessage(R.string.recovery_email_text_error)
                 }
+                hideLoading()
             }
     }
 
-    fun isLogged(): Boolean {
+    private fun isLogged(): Boolean {
         return userSharedPreferences.isLogged(Constants.UID)
     }
 }

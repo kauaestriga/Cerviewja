@@ -5,6 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 class Description(
+    var id: String? = null,
     var nome: String? = null,
     var cervejaria: String? = null,
     var estilo: String? = null,

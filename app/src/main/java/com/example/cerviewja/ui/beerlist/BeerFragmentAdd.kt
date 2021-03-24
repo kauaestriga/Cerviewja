@@ -1,17 +1,9 @@
 package com.example.cerviewja.ui.beerlist
 
-import android.app.AlertDialog
-import android.app.Dialog
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.view.Window
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
-import androidx.core.os.bundleOf
-import androidx.fragment.app.DialogFragment
 import com.example.cerviewja.R
 import com.example.cerviewja.domain.entity.Description
 import com.example.cerviewja.extensions.getDouble
@@ -22,7 +14,7 @@ import com.google.firebase.firestore.FieldValue
 
 
 class BeerFragmentAdd(
-    var save: Boolean
+    private var oldDescription: Description? = null
 ) : BaseFragment() {
 
     override val layout: Int = R.layout.fragment_add_beer
@@ -50,10 +42,12 @@ class BeerFragmentAdd(
         edtAlcoholContent = view.findViewById(R.id.edt_alcohol_content_beerfrag)
         btnSaveEdit = view.findViewById(R.id.btn_save_edit_beerfrag)
 
-        if (save)
+        if (oldDescription == null)
             btnSaveEdit.text = getString(R.string.save)
-        else
+        else {
             btnSaveEdit.text = getString(R.string.edit)
+            loadFields(oldDescription!!)
+        }
 
         setListeners()
     }
@@ -72,8 +66,10 @@ class BeerFragmentAdd(
         if (edtName.getString().isEmpty()){
             edtName.error = getString(R.string.empty_error)
             isError = true
-        } else
+        } else {
             description.nome = edtName.getString()
+            description.id = edtName.getString()
+        }
 
         if (edtBrewery.getString().isEmpty()){
             edtBrewery.error = getString(R.string.empty_error)
@@ -107,8 +103,20 @@ class BeerFragmentAdd(
 
 
         if (!isError) {
-            saveBeer(description)
+            if (oldDescription == null)
+                saveBeer(description)
+//            else
+//                updateBeer(description)
         }
+    }
+
+    private fun loadFields(description: Description) {
+        edtName.setText(description.nome)
+        edtBrewery.setText(description.cervejaria)
+        edtStyle.setText(description.estilo)
+        edtSource.setText(description.origem)
+        edtPrice.setText(description.preco.toString())
+        edtAlcoholContent.setText(description.teorAlcoolico.toString())
     }
 
     private fun saveBeer(description: Description) {
@@ -117,6 +125,13 @@ class BeerFragmentAdd(
 
         val userDocument = mFirestore.collection(Constants.BEERS_USERS)
             .document(mAuth.currentUser!!.uid)
+
+        if (oldDescription != null) {
+            userDocument
+                .collection(description.nome.toString())
+                .document(Constants.DESCRIPTION)
+                .delete()
+        }
 
         userDocument
             .collection(description.nome.toString())
@@ -130,12 +145,27 @@ class BeerFragmentAdd(
             }
 
         userDocument
-            .update(Constants.COLLECTION, FieldValue.arrayUnion(description.nome))
+            .update(Constants.COLLECTION, FieldValue.arrayUnion(description.id))
             .addOnCompleteListener { task ->
                 if (task.isSuccessful)
-                    replaceFragment(BeerListFragment(), getString(R.string.beers))
+                    replaceFragment(BeerListFragment())
             }
 
         hideLoading()
+    }
+
+    private fun updateBeer(description: Description) {
+        mAuth.currentUser?.reload()
+
+        usersBeersRefs
+            .collection(description.id.toString())
+            .document(Constants.DESCRIPTION)
+            .delete()
+            .addOnSuccessListener {
+                saveBeer(description)
+            }
+            .addOnFailureListener { e ->
+                showErrorMessage(e.message.toString())
+            }
     }
 }

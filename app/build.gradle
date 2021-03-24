@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-android-extensions'
     id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
+    id 'com.google.firebase.appdistribution'
 }
 
 android {
@@ -21,11 +22,48 @@ android {
     }
 
     buildTypes {
+        debug {
+            firebaseAppDistribution {
+                releaseNotesFile="/path/to/releasenotes.txt"
+                testers="tester.heilder@gmail.com, kaua222@gmail.com"
+            }
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            firebaseAppDistribution {
+                releaseNotesFile="Teste AppDistribution dentro do Android Studio"
+                testers="tester.heilder@gmail.com, kaua222@gmail.com"
+            }
         }
     }
+
+    flavorDimensions "version"
+    productFlavors {
+        dev {
+            dimension "version"
+            firebaseAppDistribution {
+                releaseNotes="Versão demo"
+                testers="demo@testers.com"
+            }
+        }
+        hom {
+            dimension "version"
+            firebaseAppDistribution {
+                releaseNotes="Versão completa"
+                testers="full@testers.com"
+            }
+        }
+        prod {
+            dimension "version"
+            firebaseAppDistribution {
+                releaseNotes="Versão produção"
+                testers="prod@testers.com"
+            }
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -52,8 +90,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.2'
+//    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
+//    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.2'
     implementation 'androidx.fragment:fragment:1.3.1'
 
 

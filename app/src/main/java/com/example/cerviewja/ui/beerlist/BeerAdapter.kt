@@ -3,13 +3,16 @@ package com.example.cerviewja.ui.beerlist
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cerviewja.R
 import com.example.cerviewja.domain.entity.Description
 
 class BeerAdapter(
-    private var beers: ArrayList<Description>
+    private var beers: ArrayList<Description>,
+    private var myClickListener: MyClickListener
 ) : RecyclerView.Adapter<BeerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -18,7 +21,7 @@ class BeerAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(beers[position])
+        holder.bind(beers[position], myClickListener)
     }
 
     override fun getItemCount(): Int {
@@ -26,15 +29,20 @@ class BeerAdapter(
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(beerItem: Description, myClickListener: MyClickListener) {
+            val tvTitle = itemView.findViewById<TextView>(R.id.adp_title_beer)
+            val tvPrice = itemView.findViewById<TextView>(R.id.adp_price)
+            val tvAlcoholContent =itemView.findViewById<TextView>(R.id.adp_alcohol_content)
 
-        fun bind(beerItem: Description) {
-            val title = itemView.findViewById<TextView>(R.id.adp_title_beer)
-            val price = itemView.findViewById<TextView>(R.id.adp_price)
-            val alcoholContent =itemView.findViewById<TextView>(R.id.adp_alcohol_content)
+            tvTitle.text = beerItem.nome
+            tvPrice.text = "R$ ${beerItem.preco}"
+            tvAlcoholContent.text = "${beerItem.teorAlcoolico}%"
 
-            title.text = beerItem.nome
-            price.text = "R$ ${beerItem.preco}"
-            alcoholContent.text = "${beerItem.teorAlcoolico}%"
+            itemView.setOnClickListener { myClickListener.onClick(beerItem) }
+            itemView.setOnLongClickListener {
+                myClickListener.onLongClick(beerItem)
+                return@setOnLongClickListener true
+            }
         }
     }
 
@@ -43,8 +51,8 @@ class BeerAdapter(
         notifyDataSetChanged()
     }
 
-    fun removeBeer(position: Int) {
-        beers.removeAt(position)
+    fun removeBeer(description: Description) {
+        beers.remove(description)
         notifyDataSetChanged()
     }
 }

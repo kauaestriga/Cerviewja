@@ -27,17 +27,17 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.menu_beers-> {
-                    replaceFragment(BeerListFragment(), getString(R.string.beers))
+                    replaceFragment(BeerListFragment())
                     return@setOnNavigationItemSelectedListener true
                 }
 
                 R.id.menu_profile-> {
-                    replaceFragment(ProfileFragment(), getString(R.string.profile))
+                    replaceFragment(ProfileFragment())
                     return@setOnNavigationItemSelectedListener true
                 }
 
                 R.id.menu_about-> {
-                    replaceFragment(AboutFragment(), getString(R.string.about))
+                    replaceFragment(AboutFragment())
                     return@setOnNavigationItemSelectedListener true
                 }
             }
@@ -46,9 +46,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun replaceFragment(fragment: Fragment, title: String) {
-        if (title.isNotEmpty())
-            toolbar_title.text = title
+    fun replaceFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         supportFragmentManager.popBackStack()
         transaction.replace(R.id.mainFragment, fragment)
@@ -58,12 +56,10 @@ class MainActivity : AppCompatActivity() {
 
     fun showToolbarNavigationBar() {
         bottomNavigationView.visibility = View.VISIBLE
-        toolbar.visibility = View.VISIBLE
     }
 
     fun hideToolbarNavigationBar() {
         bottomNavigationView.visibility = View.GONE
-        toolbar.visibility = View.GONE
     }
 
     override fun onBackPressed() {

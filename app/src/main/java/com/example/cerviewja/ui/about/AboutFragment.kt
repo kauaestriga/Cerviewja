@@ -8,6 +8,7 @@ import com.example.cerviewja.BuildConfig
 import com.example.cerviewja.R
 import com.example.cerviewja.domain.entity.Developer
 import com.example.cerviewja.ui.base.BaseFragment
+import com.example.cerviewja.utils.Constants
 
 class AboutFragment : BaseFragment() {
 
@@ -35,22 +36,25 @@ class AboutFragment : BaseFragment() {
     }
 
     private fun loadDevs() {
-        developers.add(Developer("Kauã Estriga", "338984"))
-        developers.add(Developer("Bárbara Perretti", "337512"))
-        developers.add(Developer("Pedro Henrique", "338043"))
+//        developers.add(Developer("Kauã Estriga", "338984"))
+//        developers.add(Developer("Bárbara Perretti", "337512"))
+//        developers.add(Developer("Pedro Henrique", "338043"))
+        showLoading()
 
         aboutAdapter = AboutAdapter(developers)
         rvDevs.adapter = aboutAdapter
 
-//        mFirestore
-//            .collection(Constants.DEVELOPERS)
-//            .get()
-//            .addOnSuccessListener { result ->
-//                for (document in result)
-//                    aboutAdapter.addDev(document.toObject(Developer::class.java))
-//            }
-//            .addOnFailureListener { e ->
-//                showErrorMessage(e.message.toString())
-//            }
+        mFirestore
+            .collection(Constants.DEVELOPERS)
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result)
+                    aboutAdapter.addDev(document.toObject(Developer::class.java))
+                hideLoading()
+            }
+            .addOnFailureListener { e ->
+                showErrorMessage(e.message.toString())
+                hideLoading()
+            }
     }
 }
