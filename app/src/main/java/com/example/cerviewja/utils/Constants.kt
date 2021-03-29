@@ -12,5 +12,6 @@ class Constants {
         const val SAVE = "save"
         const val REQUEST_KEY = "request_key"
         const val RESULT = "result"
+        const val MIN_VERSION_APP = "min_version_app"
     }
 }

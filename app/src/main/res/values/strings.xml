@@ -57,6 +57,7 @@
     <string name="empty_error">Insira um valor</string>
     <string name="save_success">Salvo com sucesso</string>
     <string name="current_currency">R$ %1$s</string>
+    <string name="cancel">cancelar</string>
 
     <!--Sobre-->
     <string name="about">Sobre</string>
@@ -77,6 +78,17 @@
     <string name="update_later">Atualizar depois</string>
     <string name="version">Versão %1$s</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--Notificações-->
+    <string name="default_notification_channel_id">fcm_default_channel</string>
+    <string name="default_notification_channel_name">Canal de Avisos</string>
+    <string name="default_notification_channel_description">Canal de avisos do aplicativo Cerviewja</string>
+    <string name="notif_title">Creviewja</string>
+    <string name="notif_text">Exemplo de Notificação</string>
+    <string name="notif_channel_name">Padrão</string>
+    <string name="notif_channel_description">Canal padrão de notificações</string>
+
+    <!--Pelo mundo-->
+    <string name="around_world">Pelo mundo</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="around_world_text">Veja suas cervejas pelo mundo!</string>
 </resources>

@@ -11,8 +11,8 @@ import com.example.cerviewja.ui.base.BaseFragment
 import com.example.cerviewja.ui.beerlist.BeerListFragment
 import com.example.cerviewja.ui.signup.SignUpFragment
 import com.example.cerviewja.utils.Constants
-import com.example.cerviewja.utils.SystemUtils.Companion.hideKeyboard
-import com.example.cerviewja.utils.ValidateUtils
+import com.example.cerviewjalib.SystemUtils.Companion.hideKeyboard
+import com.example.cerviewjalib.ValidateUtils
 
 class LoginFragment : BaseFragment() {
 

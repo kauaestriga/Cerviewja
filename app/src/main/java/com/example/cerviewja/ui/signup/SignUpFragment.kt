@@ -11,7 +11,7 @@ import com.example.cerviewja.extensions.getString
 import com.example.cerviewja.ui.base.BaseFragment
 import com.example.cerviewja.ui.beerlist.BeerListFragment
 import com.example.cerviewja.utils.Constants
-import com.example.cerviewja.utils.ValidateUtils
+import com.example.cerviewjalib.ValidateUtils
 
 class SignUpFragment : BaseFragment() {
 

@@ -31,7 +31,7 @@
         android:id="@+id/imageView3"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@mipmap/ic_launcher_round"
+        android:src="@mipmap/ic_launcher_round_custom"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,82 +49,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-<!--    <LinearLayout-->
-<!--        android:id="@+id/dev1"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="vertical"-->
-<!--        android:background="@drawable/background_cardview"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginEnd="16dp"-->
-<!--        android:padding="8dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView3">-->
-
-<!--        <TextView-->
-<!--            style="@style/text"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Kauã Estriga" />-->
-
-<!--        <TextView-->
-<!--            style="@style/text"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:text="338984" />-->
-<!--    </LinearLayout>-->
-
-<!--    <LinearLayout-->
-<!--        android:id="@+id/dev2"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@drawable/background_cardview"-->
-<!--        android:orientation="vertical"-->
-<!--        android:layout_marginTop="@dimen/margin_top_default"-->
-<!--        android:padding="8dp"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/dev1"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/dev1"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/dev1">-->
-
-<!--        <TextView-->
-<!--            style="@style/text"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Bárbara Perretti" />-->
-
-<!--        <TextView-->
-<!--            style="@style/text"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:text="337512" />-->
-<!--    </LinearLayout>-->
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@drawable/background_cardview"-->
-<!--        android:orientation="vertical"-->
-<!--        android:padding="8dp"-->
-<!--        android:layout_marginTop="@dimen/margin_top_default"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/dev2"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/dev2"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/dev2">-->
-
-<!--        <TextView-->
-<!--            style="@style/text"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Pedro Henrique" />-->
-
-<!--        <TextView-->
-<!--            style="@style/text"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:text="338043" />-->
-<!--    </LinearLayout>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_devs_list"

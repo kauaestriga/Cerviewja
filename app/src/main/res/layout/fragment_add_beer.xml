@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background">
@@ -35,6 +36,7 @@
         android:drawableStart="@drawable/ic_bottle"
         android:layout_marginTop="16dp"
         android:hint="@string/name"
+        android:inputType="textPersonName"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +51,7 @@
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         android:hint="@string/brewery"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@+id/edt_name_beerfrag"
         app:layout_constraintStart_toStartOf="@+id/edt_name_beerfrag"
         app:layout_constraintTop_toBottomOf="@+id/edt_name_beerfrag" />
@@ -61,6 +64,7 @@
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         android:hint="@string/style"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@+id/edt_brewery_beerfrag"
         app:layout_constraintStart_toStartOf="@+id/edt_brewery_beerfrag"
         app:layout_constraintTop_toBottomOf="@+id/edt_brewery_beerfrag" />
@@ -73,6 +77,7 @@
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         android:hint="@string/source"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@+id/edt_style_beerfrag"
         app:layout_constraintStart_toStartOf="@+id/edt_style_beerfrag"
         app:layout_constraintTop_toBottomOf="@+id/edt_style_beerfrag" />
@@ -111,4 +116,14 @@
         app:layout_constraintEnd_toEndOf="@+id/edt_alcohol_content_beerfrag"
         app:layout_constraintStart_toStartOf="@+id/edt_alcohol_content_beerfrag"
         app:layout_constraintTop_toBottomOf="@+id/edt_alcohol_content_beerfrag"/>
+
+    <TextView
+        android:id="@+id/tv_link_cancel_beerfrag"
+        style="@style/link"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="@string/cancel"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_save_edit_beerfrag"
+        app:layout_constraintStart_toStartOf="@+id/btn_save_edit_beerfrag"
+        app:layout_constraintTop_toBottomOf="@+id/btn_save_edit_beerfrag" />
 </androidx.constraintlayout.widget.ConstraintLayout>

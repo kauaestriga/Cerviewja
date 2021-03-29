@@ -12,6 +12,11 @@
         android:title="@string/profile"/>
 
     <item
+        android:id="@+id/menu_around_world"
+        android:icon="@drawable/ic_earth"
+        android:title="@string/around_world"/>
+
+    <item
         android:id="@+id/menu_about"
         android:icon="@drawable/ic_information"
         android:title="@string/about"/>

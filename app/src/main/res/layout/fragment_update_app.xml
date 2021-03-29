@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/containerUpdateApp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_beer"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <ImageView
+        android:id="@+id/ivUpdateApp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher_round_custom" />
+
+    <TextView
+        android:id="@+id/tvTitleUpdateApp"
+
+        style="@style/big_title"
+        android:textSize="40sp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/ops" />
+
+    <TextView
+        android:id="@+id/tvUpdateApp"
+        style="@style/big_subtitle"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/update_app_text" />
+
+    <Button
+        android:id="@+id/btUpdateApp"
+        style="@style/button_primary"
+        android:text="@string/update_now" />
+
+    <TextView
+        android:id="@+id/btUpdateLater"
+        style="@style/link"
+        android:text="@string/update_later"
+        android:layout_marginTop="32dp" />
+
+</LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.cerviewja.ui.base
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,17 +9,20 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.FragmentManager
 import com.example.cerviewja.BuildConfig
 import com.example.cerviewja.R
 import com.example.cerviewja.ui.main.MainActivity
+import com.example.cerviewja.ui.updateapp.UpdateAppFragment
 import com.example.cerviewja.utils.Constants
-import com.example.cerviewja.utils.CustomDialog
+import com.example.cerviewjalib.CustomDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig
+import com.google.firebase.remoteconfig.ktx.remoteConfig
+import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 
 abstract class BaseFragment : Fragment() {
 
@@ -28,16 +32,19 @@ abstract class BaseFragment : Fragment() {
     private lateinit var flavourView: View
     lateinit var mAuth: FirebaseAuth
     lateinit var mFirestore: FirebaseFirestore
-    lateinit var usersBeersRefs: DocumentReference
+    lateinit var beersRefs: CollectionReference
     lateinit var mainActivity: MainActivity
+    lateinit var remoteConfig: FirebaseRemoteConfig
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        loadRemoteConfig()
         mAuth = FirebaseAuth.getInstance()
         mFirestore = FirebaseFirestore.getInstance()
         mainActivity = activity as MainActivity
-        usersBeersRefs = mFirestore.collection(Constants.BEERS_USERS).document(mAuth.currentUser!!.uid)
+        mAuth.currentUser?.reload()
+        beersRefs = mFirestore.collection(Constants.BEERS_USERS).document(mAuth.currentUser!!.uid).collection(Constants.DESCRIPTION)
     }
 
     override fun onCreateView(
@@ -45,6 +52,9 @@ abstract class BaseFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        if (BuildConfig.VERSION_CODE < remoteConfig.getString(Constants.MIN_VERSION_APP).toInt())
+            replaceFragment(UpdateAppFragment())
+
         val screenRootView = FrameLayout(requireContext())
 
         val screenView = inflater.inflate(layout, container, false)
@@ -67,6 +77,19 @@ abstract class BaseFragment : Fragment() {
         screenRootView.addView(flavourView)
 
         return screenRootView
+    }
+
+    private fun loadRemoteConfig() {
+        remoteConfig = Firebase.remoteConfig
+
+        val configSettings = remoteConfigSettings {
+            minimumFetchIntervalInSeconds = 3600
+            fetchTimeoutInSeconds = 60
+        }
+
+        remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
+        remoteConfig.setConfigSettingsAsync(configSettings)
+        remoteConfig.fetchAndActivate()
     }
 
     private fun configureEnvironment(container: View, tvEnvironment: TextView) {
@@ -130,13 +153,8 @@ abstract class BaseFragment : Fragment() {
         mainActivity.replaceFragment(fragment)
     }
 
-    private fun registerBackPressedAction() {
-        val callback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                activity?.finish()
-            }
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+    fun backPress() {
+        mainActivity.onBackPressed()
     }
 
     companion object {
