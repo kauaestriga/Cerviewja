@@ -70,6 +70,7 @@
     <string name="user_not_found">Usuário não encontrado</string>
     <string name="user_email_invalid">Usuário ou senha inválido</string>
     <string name="impossible_account_create">Não foi possível criar a conta</string>
+    <string name="stranger_error">Erro desconhecido, informe ao desenvolvedor</string>
 
     <!--Atualizaçao App-->
     <string name="update_app_text">Você está utilizando uma versão antiga do nosso aplicativo.
