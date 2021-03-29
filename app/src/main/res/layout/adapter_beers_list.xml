@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp"
     android:layout_margin="8dp"
@@ -14,7 +14,7 @@
         style="@style/text"
         android:layout_width="0dp"
         android:text="Beer name"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintEnd_toStartOf="@+id/tv_beer_photo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,7 +24,7 @@
         android:layout_width="0dp"
         android:layout_marginTop="4dp"
         android:text="Price beer"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintEnd_toStartOf="@+id/tv_beer_photo"
         app:layout_constraintStart_toStartOf="@+id/adp_title_beer"
         app:layout_constraintTop_toBottomOf="@+id/adp_title_beer" />
 
@@ -35,7 +35,7 @@
         android:layout_marginTop="4dp"
         android:text="Alcohol content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintEnd_toStartOf="@+id/tv_beer_photo"
         app:layout_constraintStart_toStartOf="@+id/adp_price"
         app:layout_constraintTop_toBottomOf="@+id/adp_price" />
 
@@ -43,17 +43,38 @@
         android:id="@+id/tv_beer_photo"
         android:layout_width="48dp"
         android:layout_height="0dp"
-        android:src="@drawable/adp_iv_beer"
         android:scaleType="centerCrop"
+        android:src="@drawable/adp_iv_beer"
+        android:layout_marginEnd="@dimen/margin_sides_default"
         app:layout_constraintBottom_toBottomOf="@+id/adp_alcohol_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iv_beer_share"
         app:layout_constraintStart_toEndOf="@+id/adp_price"
         app:layout_constraintTop_toTopOf="@+id/adp_title_beer" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
+    <ImageView
+        android:id="@+id/iv_beer_share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.8" />
+        android:src="@drawable/ic_share"
+        android:layout_marginEnd="@dimen/margin_sides_default"
+        app:layout_constraintBottom_toTopOf="@+id/sai"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_beer_photo" />
+
+    <ImageView
+        android:id="@+id/iv_beer_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_phone"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_beer_photo"
+        app:layout_constraintEnd_toEndOf="@+id/iv_beer_share"
+        app:layout_constraintTop_toTopOf="@+id/sai" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/sai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

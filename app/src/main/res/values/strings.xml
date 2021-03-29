@@ -43,6 +43,8 @@
     <string name="delete_message_success">Excluido com sucesso</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
+    <string name="sharing_text">Veja a \"%1$s\", uma das minhas cervejas do app Cerview!! \n\nConfira: %2$s</string>
+    <string name="call_atention">Ligar para nosso parceiro para encontrar sua bebida favorita?</string>
 
     <!--Adicionar cerveja-->
     <string name="the_beer">A Cerveja</string>

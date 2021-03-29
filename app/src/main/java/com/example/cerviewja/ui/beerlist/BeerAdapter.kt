@@ -33,6 +33,8 @@ class BeerAdapter(
             val tvTitle = itemView.findViewById<TextView>(R.id.adp_title_beer)
             val tvPrice = itemView.findViewById<TextView>(R.id.adp_price)
             val tvAlcoholContent =itemView.findViewById<TextView>(R.id.adp_alcohol_content)
+            val ivShare = itemView.findViewById<ImageView>(R.id.iv_beer_share)
+            val ivCall = itemView.findViewById<ImageView>(R.id.iv_beer_phone)
 
             tvTitle.text = beerItem.nome
             tvPrice.text = "R$ ${beerItem.preco}"
@@ -42,6 +44,14 @@ class BeerAdapter(
             itemView.setOnLongClickListener {
                 myClickListener.onLongClick(beerItem)
                 return@setOnLongClickListener true
+            }
+
+            ivShare.setOnClickListener {
+                myClickListener.onShareClick(beerItem)
+            }
+
+            ivCall.setOnClickListener {
+                myClickListener.onCallClick()
             }
         }
     }

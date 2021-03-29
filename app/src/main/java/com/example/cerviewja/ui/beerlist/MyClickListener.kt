@@ -7,4 +7,8 @@ interface MyClickListener {
     fun onClick(description: Description)
 
     fun onLongClick(description: Description)
+
+    fun onShareClick(description: Description)
+
+    fun onCallClick()
 }
