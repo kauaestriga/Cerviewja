@@ -34,6 +34,8 @@
 
     <!--Perfil-->
     <string name="profile">Perfil</string>
+    <string name="edit_photo">Editar foto</string>
+    <string name="logoff">Desconectar</string>
 
     <!--Cervejas-->
     <string name="beers">Cervejas</string>

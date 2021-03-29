@@ -27,4 +27,69 @@
             android:textSize="24sp" />
     </androidx.appcompat.widget.Toolbar>
 
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_beer_profile"
+        android:src="@drawable/profile_default" />
+
+    <TextView
+        android:id="@+id/tv_edit_avatar"
+        style="@style/link"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="8dp"
+        android:text="@string/edit_photo"
+        app:layout_constraintEnd_toEndOf="@+id/iv_avatar"
+        app:layout_constraintStart_toStartOf="@+id/iv_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/iv_avatar" />
+
+    <EditText
+        android:id="@+id/edt_name_profile"
+        style="@style/edittext"
+        android:layout_marginStart="@dimen/margin_sides_default"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="@dimen/margin_sides_default"
+        android:inputType="textPersonName"
+        android:hint="@string/name"
+        android:enabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_edit_avatar" />
+
+    <EditText
+        android:id="@+id/edt_email_profile"
+        style="@style/edittext"
+        android:layout_marginTop="@dimen/margin_top_default"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email"
+        android:enabled="false"
+        app:layout_constraintEnd_toEndOf="@+id/edt_name_profile"
+        app:layout_constraintStart_toStartOf="@+id/edt_name_profile"
+        app:layout_constraintTop_toBottomOf="@+id/edt_name_profile" />
+
+    <Button
+        android:id="@+id/btn_save_profile"
+        style="@style/button_primary"
+        android:layout_marginTop="32dp"
+        android:text="@string/save"
+        app:layout_constraintEnd_toEndOf="@+id/edt_email_profile"
+        app:layout_constraintStart_toStartOf="@+id/edt_email_profile"
+        app:layout_constraintTop_toBottomOf="@+id/edt_email_profile" />
+
+    <TextView
+        android:id="@+id/tv_logoff_profile"
+        style="@style/link"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="16dp"
+        android:text="@string/logoff"
+        app:layout_constraintEnd_toEndOf="@+id/btn_save_profile"
+        app:layout_constraintStart_toStartOf="@+id/btn_save_profile"
+        app:layout_constraintTop_toBottomOf="@+id/btn_save_profile" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,14 +2,14 @@ package com.example.cerviewja.ui.base
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.ActivityCompat.finishAffinity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.cerviewja.BuildConfig
 import com.example.cerviewja.R
@@ -45,7 +45,10 @@ abstract class BaseFragment : Fragment() {
         mFirestore = FirebaseFirestore.getInstance()
         mainActivity = activity as MainActivity
         mAuth.currentUser?.reload()
-        beersRefs = mFirestore.collection(Constants.BEERS_USERS).document(mAuth.currentUser!!.uid).collection(Constants.DESCRIPTION)
+        if (mAuth.currentUser != null)
+            beersRefs = mFirestore.collection(Constants.BEERS_USERS).document(mAuth.currentUser!!.uid).collection(
+                Constants.DESCRIPTION
+            )
     }
 
     override fun onCreateView(
@@ -62,8 +65,10 @@ abstract class BaseFragment : Fragment() {
 
         loadingView = inflater.inflate(R.layout.loading_progress, container, false)
 
-        val flavourScreen = inflater.inflate(R.layout.include_flavour,
-            container, false)
+        val flavourScreen = inflater.inflate(
+            R.layout.include_flavour,
+            container, false
+        )
         flavourView = flavourScreen.findViewById(R.id.flavourScreen)
 
         configureEnvironment(
@@ -158,9 +163,11 @@ abstract class BaseFragment : Fragment() {
         mainActivity.onBackPressed()
     }
 
-//    fun startActivity(intent: Intent) {
-//        mainActivity.startActivity(intent)
-//    }
+    fun logoff() {
+        val intent = Intent(context, MainActivity::class.java)
+        mainActivity.startActivity(intent)
+        mainActivity.finishAffinity()
+    }
 
     companion object {
         fun addFragment(manager: FragmentManager, fragment: Fragment) {

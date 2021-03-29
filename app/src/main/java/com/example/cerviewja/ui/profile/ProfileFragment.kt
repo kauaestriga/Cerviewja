@@ -1,60 +1,89 @@
 package com.example.cerviewja.ui.profile
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.provider.SyncStateContract
 import android.view.View
-import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
 import com.example.cerviewja.R
+import com.example.cerviewja.data.local.UserSharedPreferences
+import com.example.cerviewja.domain.entity.User
+import com.example.cerviewja.ui.base.BaseFragment
+import com.example.cerviewja.utils.Constants
+import java.lang.Exception
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class ProfileFragment : BaseFragment() {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    override val layout: Int = R.layout.fragment_profile
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private lateinit var ivAvatar: ImageView
+    private lateinit var tvEditPhoto: TextView
+    private lateinit var edtName: EditText
+    private lateinit var edtEmail: EditText
+    private lateinit var btnSave: Button
+    private lateinit var tvLogoff: TextView
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setUpView(view)
+    }
+
+    private fun setUpView(view: View) {
+        ivAvatar = view.findViewById(R.id.iv_avatar)
+        tvEditPhoto = view.findViewById(R.id.tv_edit_avatar)
+        edtName = view.findViewById(R.id.edt_name_profile)
+        edtEmail = view.findViewById(R.id.edt_email_profile)
+        btnSave = view.findViewById(R.id.btn_save_profile)
+        tvLogoff = view.findViewById(R.id.tv_logoff_profile)
+        setUpListeners()
+
+        loadFields()
+    }
+
+    private fun setUpListeners() {
+        tvEditPhoto.setOnClickListener {
+            showToastMessage("Indisponível no momento")
+        }
+
+        btnSave.setOnClickListener {
+            showToastMessage("Indisponível no momento")
+        }
+
+        tvLogoff.setOnClickListener {
+            mAuth.signOut()
+            UserSharedPreferences(requireContext()).cleanValue(Constants.UID)
+            logoff()
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
-    }
+    private fun loadFields() {
+        try {
+            showLoading()
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+            mAuth.currentUser?.reload()
+
+            mAuth.currentUser?.uid?.let {
+                mFirestore.collection(Constants.USERS)
+                    .document(it)
+                    .get()
+                    .addOnSuccessListener { document ->
+                        val user = document.toObject(User::class.java)
+                        edtName.setText(user?.name)
+                        edtEmail.setText(user?.email)
+                        hideLoading()
+                    }
+                    .addOnFailureListener { e ->
+                        showErrorMessage(e.message)
+                        hideLoading()
+                    }
             }
+        } catch (e: Exception) {
+            showErrorMessage(getString(R.string.stranger_error))
+            e.printStackTrace()
+            hideLoading()
+        }
     }
 }
